@@ -27,16 +27,12 @@ public:
 		file1.create_file();
 		file2.create_file();
 
-		libxl::Font* textFont = file2.get_book()->addFont();
-		textFont->setSize(8);
-		textFont->setName(L"Century Gothic");
-		libxl::Format* textFormat = file2.get_book()->addFormat();
-		textFormat->setFont(textFont);
+		file2.set_format_and_font(8, L"Century Gothic");
 		file2.create_sheet(L"New");
 
 		file1.open_file(file_name1);
 		modification();
-		file1.print_sheet();
+		//file1.print_sheet();
 		file2.save_file(file_name2);
 	}
 

@@ -13,21 +13,21 @@ private:
 
 public:
 
-	void create_file() {
-		book = xlCreateBook();
-		
-	}
-	void create_sheet(const wchar_t* sheet_name) {
-		sheet = book->addSheet(sheet_name);
-		
-	}
-
 	libxl::Sheet* get_sheet() { 
 		return sheet; 
 	}
 
 	libxl::Book* get_book() {
 		return book;
+	}
+	void create_file() {
+		book = xlCreateBook();
+		
+	}
+
+	void create_sheet(const wchar_t* sheet_name) {
+		sheet = book->addSheet(sheet_name);
+		
 	}
 
 	void open_file(const wchar_t* file_name) {
@@ -59,6 +59,16 @@ public:
 				std::cout << "(" << row << ", " << col << ") = " << str << std::endl;
 			}
 		}
+	}
+
+	void set_format_and_font(int size, const wchar_t* font_name) {
+
+		libxl::Font* textFont = book->addFont();
+		textFont->setSize(8);
+		textFont->setName(font_name);
+		libxl::Format* textFormat = book->addFormat();
+		textFormat->setFont(textFont);
+		
 	}
 
 };
