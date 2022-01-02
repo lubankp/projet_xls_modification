@@ -13,12 +13,28 @@ private:
 
 public:
 
+	void create_file() {
+		book = xlCreateBook();
+		
+	}
+	void create_sheet(const wchar_t* sheet_name) {
+		sheet = book->addSheet(sheet_name);
+		
+	}
+
+	libxl::Sheet* get_sheet() { 
+		return sheet; 
+	}
+
+	libxl::Book* get_book() {
+		return book;
+	}
+
 	void open_file(const wchar_t* file_name) {
 
 		try {
-			book = xlCreateBook();
+			
 			book->load(L"file.xls");
-
 			sheet = book->getSheet(0);
 		}
 		catch (const std::exception& e) {
@@ -27,6 +43,10 @@ public:
 		}
 	}
 
+	void save_file(const wchar_t* file_name) {
+	
+		book->save(file_name);
+	}
 
 	void print_sheet() {
 	
