@@ -11,12 +11,12 @@ public:
 
 	void modification() {
 	
-		for (int row = file1.get_sheet()->firstRow(); row < file1.get_sheet()->lastRow(); ++row)
+		for (int row = file1.first_row(); row < file1.last_row(); ++row)
 		{
-			for (int col = file1.get_sheet()->firstCol(); col < file1.get_sheet()->lastCol(); ++col)
+			for (int col = file1.first_column(); col < file1.last_column(); ++col)
 			{
 				
-				file2.get_sheet()->writeStr(col, row, file1.get_sheet()->readStr(row,col));
+				file2.write_string(col, row, file1.read_string(row,col));
 			}
 		}
 	

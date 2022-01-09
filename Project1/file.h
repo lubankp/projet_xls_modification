@@ -71,4 +71,45 @@ public:
 		
 	}
 
+	void write_string(int col, int row, const wchar_t* string) {
+	
+		sheet->writeStr(col, row, string);
+
+	}
+
+	const wchar_t* read_string(int col, int row) {
+
+		const wchar_t* string = sheet->readStr(col, row);
+
+		return string;
+	}
+
+	int first_column() {
+	
+		int first_col = sheet->firstCol();
+
+		return first_col;
+	}
+
+	int last_column() {
+
+		int last_col = sheet->lastCol();
+
+		return last_col;
+	}
+
+	int first_row() {
+
+		int first_row = sheet->firstRow();
+
+		return first_row;
+	}
+
+	int last_row() {
+
+		int last_row = sheet->lastRow();
+
+		return last_row;
+	}
+
 };
