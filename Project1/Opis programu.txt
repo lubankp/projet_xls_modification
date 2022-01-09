@@ -1,0 +1,9 @@
+Aplikacja została napisana w podziale na trzy pliki: główny main.cpp i dwa nagłówkowe. Kod napisany jest obiektowo, co wprowadza nowoczesność 
+do  programowania C++, zwiększa czytelność kodu dla programisty, oraz ułatwia utrzymanie aplikacji. 
+W pliku głównym deklaruje się jedynie obiekt klasy Transformation i uruchamia jego metodę wybierając nazwy plików, na których metoda pracuje. 
+Dzięki takiej implementaci kod jest czytelny i poukładany. W pliku nagłówkowym transformation.h mieści się klasa Transformation zawierająca metody, 
+które definiują jak chcemy pracować nad polami wewnętrzymi klasy, którymi są obiekty klasy File. Jest to klasa można powiedzieć "wykonawcza" w aplikacji.
+W pliku nagłówkowym file.h zdefiniowana jest klasa File, która definjuje obiekty plików xls, oraz umożliwia dostęp do funkcjonalności biblioteki 
+libxl.h. Dzięki "obudowaniu" metod z biblioteki w tym pliku nagłówkowym możliwe jest szybkie podmienienie bliblioteki modyfikując jedynie klasę File. 
+
+ 
